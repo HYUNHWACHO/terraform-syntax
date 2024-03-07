@@ -30,31 +30,14 @@ resource "aws_subnet" "public_subnet_1" {
   }
 }
 
-resource "aws_subnet" "public_subnet_2" {
-  vpc_id     = aws_vpc.default.id
-  cidr_block = "10.0.101.0/24"
+# resource "aws_subnet" "hangaramqpt_private_subnet_1" {
+#   vpc_id     = aws_vpc.default.id
+#   cidr_block = "10.0.101.0/24"
 
-  tags = {
-    Name = "hangaramqpt_public_subnet_2"
-  }
+#   tags = {
+#     Name = "hangaramqpt_private_subnet_1"
+#   }
+# }
+data "aws_subnet" "private__subnet_1" {
+  id = "subnet-0d3e324b8a21c656e"
 }
-
-# Create a Private Subnet
-resource "aws_subnet" "private_subnet_1" {
-  vpc_id     = aws_vpc.default.id
-  cidr_block = "10.0.110.0/24"
-
-  tags = {
-    Name = "hangaramqpt_private_subnet_1"
-  }
-}
-
-resource "aws_subnet" "private_subnet_2" {
-  vpc_id     = aws_vpc.default.id
-  cidr_block = "10.0.111.0/24"
-
-  tags = {
-    Name = "hangaramqpt_private_subnet_2"
-  }
-}
-
